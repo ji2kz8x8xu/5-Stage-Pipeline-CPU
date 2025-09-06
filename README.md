@@ -5,16 +5,14 @@ This repository implements a classic **5-stage pipeline** CPU in Verilog:
 **IF → ID → EX → MEM → WB**.  
 The design is modular—ALU, register file, Hi/Lo, control unit, instruction/data
 memory, sign-extend, and per-stage pipeline registers—plus a testbench for
-simulation and waveform inspection (ModelSim/Questa or Icarus Verilog).
+simulation and waveform inspection (ModelSim).
 
-## Highlights
 - **Clear 5-stage pipeline** for learning, debugging, and extension.
 - **Simulation-ready** testbench; edit `instr_mem.txt` / `data_mem.txt` to load programs.
 - **Simplified control-hazard handling** using **NOP delay slots**  
   (e.g., one `nop` after `j`; three `nop`s for `beq`) to make timing explicit.
 - **Modular source layout** to keep each component easy to read and replace.
 
-> Note: See the repository for the exact file list and naming.
 
 ## Typical Modules (by category)
 - **Top/Testbench**: `mips_pipeline.v`, `tb_pipeline.v`
@@ -30,7 +28,7 @@ simulation and waveform inspection (ModelSim/Questa or Icarus Verilog).
 
 ## Quick Start (Simulation)
 
-### ModelSim / Questa
+### ModelSim
 1. Create a project and **add all Verilog sources**.
 2. Set **`tb_pipeline.v` as the top** for simulation.
 3. Run simulation; inspect signals (e.g., `pc`, stage control lines, write-back data).
